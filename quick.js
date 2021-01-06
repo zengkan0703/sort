@@ -31,3 +31,35 @@ function partition(arr, l, r) {
   arr[r] = temp;
   return i;
 }
+
+
+
+// 第 k 大元素
+function kMax(arr, k) {
+  return kMaxHelp(arr, 0, arr.length - 1, k);
+}
+function kMaxHelp(arr, l, r, k) {
+  if (l >= r) {
+    return arr[l];
+  }
+  const refer = arr[r];
+  let i = l;
+  for (let j = l; j < r; j++) {
+    if (arr[j] >= refer) {
+      const temp = arr[j];
+      arr[j] = arr[i];
+      arr[i] = temp;
+      i++;
+    }
+  }
+  arr[r] = arr[i];
+  arr[i] = refer;
+  if (i + 1 === k) {
+    return arr[i];
+  }
+  if (i + 1 < k) {
+    return kMaxHelp(arr, i + 1, r, k);
+  } else {
+    return kMaxHelp(arr, l, i - 1, k);
+  }
+}
