@@ -36,3 +36,25 @@ function mergeSortHelp(arr, l, r) {
   }
   return arr;
 }
+
+// 归并排序，更简洁的实现
+function mergeSort(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  const mid = arr.length >> 1;
+  const left = arr.slice(0, mid);
+  const right = arr.slice(mid);
+  return merge(mergeSort(left), mergeSort(right))
+}
+function merge(left, right) {
+  const temp = [];
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
+      temp.push(left.shift())
+    } else {
+      temp.push(right.shift())
+    }
+  }
+  return temp.concat(left, right);
+}
