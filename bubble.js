@@ -1,8 +1,8 @@
 // 冒泡排序
 function bubbleSort(arr) {  
-  // 优化标记
-  const exchange = false;
   for (let i = 0; i < arr.length - 1; i++) {
+    // 优化标记
+    const exchange = false;
     for (let j = 0; j < arr.length - 1- i; j++) {
       if (arr[j] > arr[j+1]) {
         const temp = arr[j];

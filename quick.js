@@ -4,7 +4,7 @@ function quickSort(arr) {
 }
 function quickSortHelp(arr, l, r) {
   if (l >= r) {
-    return;
+    return arr;
   }
   // 把 arr 分为三部分，分区点 refer、大于分区点的部分、小于分区点的部分
   const idx = partition(arr, l, r);
