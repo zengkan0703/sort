@@ -16,7 +16,10 @@ function quickSortHelp(arr, l, r) {
 }
 
 function partition(arr, l, r) {
-  const refer = arr[r];
+  const referIdx = Math.floor(Math.random() * (r-l)) + l;
+  const refer = arr[referIdx];
+  arr[referIdx] = arr[r];
+  arr[r] = refer;
   let i = l;
   for (let j = l; j < r; j ++) {
     if (arr[j] <= refer) {
